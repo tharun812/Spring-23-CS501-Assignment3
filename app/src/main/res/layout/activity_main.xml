@@ -15,14 +15,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar1" />
+        app:layout_constraintTop_toBottomOf="@+id/celsiusSeekBar" />
 
     <SeekBar
-        android:id="@+id/seekBar1"
+        android:id="@+id/celsiusSeekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="500"
-        android:min="-500"
+        android:max="100"
+        android:min="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.19" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/celsiusValueBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.79"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar1" />
+        app:layout_constraintTop_toBottomOf="@+id/celsiusSeekBar" />
 
     <TextView
         android:id="@+id/textView3"
@@ -47,17 +47,17 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="90dp"
         android:text="Fahrenheit"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar2"
+        app:layout_constraintBottom_toTopOf="@+id/fahrenheitSeekBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent" />
 
     <SeekBar
-        android:id="@+id/seekBar2"
+        android:id="@+id/fahrenheitSeekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="500"
-        android:min="-500"
+        android:max="212"
+        android:min="0"
         android:layout_marginTop="456dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -65,12 +65,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/fahrenheitValueBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="90dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar2"
+        app:layout_constraintBottom_toTopOf="@+id/fahrenheitSeekBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.79"
         app:layout_constraintStart_toStartOf="parent" />
