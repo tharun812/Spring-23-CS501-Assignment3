@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     private var celsius: Int = 0
     private var fahrenheit: Int = 32
+    private var snackbar: Snackbar? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,11 +58,17 @@ class MainActivity : AppCompatActivity() {
                 if (fromUser) {
                     if (progress < 32) {
                         binding.fahrenheitSeekBar.progress = 32
-                        Toast.makeText(
-                            this@MainActivity,
-                            "The Fahrenheit SeekBar cannot remain below 32° F",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        if (snackbar == null) {
+                            snackbar = Snackbar.make(
+                                window.decorView.rootView,
+                                R.string.warmer,
+                                Snackbar.LENGTH_SHORT)
+                            snackbar?.show()
+                        } else {
+                            snackbar?.dismiss()
+                            snackbar = null
+                        }
+
                     } else {
                         fahrenheit = progress
                         celsius = temperatureConverter.fahrenheitToCelsius(progress)
