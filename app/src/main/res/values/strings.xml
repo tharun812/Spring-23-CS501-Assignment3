@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Temperature Converter</string>
-    <string name="warmer">I wish it was warmer</string>
-    <string name="colder">I wish it was colder</string>
+    <string name="warmer">I wish it was warmer! 🥶</string>
+    <string name="colder">I wish it was colder! 🥵</string>
 </resources>
