@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         binding.celsiusSeekBar.max =  100
         binding.fahrenheitSeekBar.max = 212
 
+        //new code check
+
         binding.celsiusSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser) {
