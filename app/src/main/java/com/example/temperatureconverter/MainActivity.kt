@@ -2,7 +2,9 @@ package com.example.temperatureconverter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.SeekBar
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
@@ -32,12 +34,44 @@ class MainActivity : AppCompatActivity() {
         binding.celsiusSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser) {
-                    celsius = progress
-                    fahrenheit = temperatureConverter.celsiusToFahrenheit(progress)
-                    binding.fahrenheitSeekBar.progress =  fahrenheit
-                    binding.celsiusValueBox.text = progress.toString()
+                    if (temperatureConverter.checkcel(progress).equals("warmer")) {
 
-                } else{
+                        val snackBarView = Snackbar.make(
+                            window.decorView.rootView,
+                            R.string.warmer,
+                            Snackbar.LENGTH_SHORT
+                        )
+                        val view = snackBarView.view
+                        val params = view.layoutParams as FrameLayout.LayoutParams
+                        view.layoutParams = params
+                        snackBarView.show()
+                    } else {
+                        snackbar?.dismiss()
+                        snackbar = null
+                    }
+                    if (temperatureConverter.checkcel(progress).equals("colder")) {
+
+                        val snackBarView = Snackbar.make(
+                            window.decorView.rootView,
+                            R.string.colder,
+                            Snackbar.LENGTH_SHORT
+                        )
+                        val view = snackBarView.view
+                        val params = view.layoutParams as FrameLayout.LayoutParams
+                        view.layoutParams = params
+                        snackBarView.show()
+                    } else {
+                        snackbar?.dismiss()
+                        snackbar = null
+                    }
+
+
+                celsius = progress
+                fahrenheit = temperatureConverter.celsiusToFahrenheit(progress)
+                binding.fahrenheitSeekBar.progress = fahrenheit
+                binding.celsiusValueBox.text = progress.toString()
+            }
+                else{
                     celsius = progress
                     fahrenheit = temperatureConverter.celsiusToFahrenheit(progress)
                     binding.fahrenheitSeekBar.progress =  fahrenheit
@@ -56,25 +90,42 @@ class MainActivity : AppCompatActivity() {
             SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser) {
-                    if (progress < 32) {
-                        binding.fahrenheitSeekBar.progress = 32
-                        if (snackbar == null) {
-                            snackbar = Snackbar.make(
-                                window.decorView.rootView,
-                                R.string.warmer,
-                                Snackbar.LENGTH_SHORT)
-                            snackbar?.show()
-                        } else {
-                            snackbar?.dismiss()
-                            snackbar = null
-                        }
+                    if (temperatureConverter.chekfarhen(progress).equals("warmer")) {
 
+                        val snackBarView = Snackbar.make(
+                            window.decorView.rootView,
+                            R.string.warmer,
+                            Snackbar.LENGTH_SHORT
+                        )
+                        val view = snackBarView.view
+                        val params = view.layoutParams as FrameLayout.LayoutParams
+                        view.layoutParams = params
+                        snackBarView.show()
                     } else {
-                        fahrenheit = progress
-                        celsius = temperatureConverter.fahrenheitToCelsius(progress)
-                        binding.celsiusSeekBar.progress = celsius
-                        binding.fahrenheitValueBox.text = progress.toString()
+                        snackbar?.dismiss()
+                        snackbar = null
                     }
+                    if (temperatureConverter.chekfarhen(progress).equals("colder")) {
+
+                        val snackBarView = Snackbar.make(
+                            window.decorView.rootView,
+                            R.string.colder,
+                            Snackbar.LENGTH_SHORT
+                        )
+                        val view = snackBarView.view
+                        val params = view.layoutParams as FrameLayout.LayoutParams
+                        view.layoutParams = params
+                        snackBarView.show()
+                    } else {
+                        snackbar?.dismiss()
+                        snackbar = null
+                    }
+
+                    fahrenheit = progress
+                    celsius = temperatureConverter.fahrenheitToCelsius(progress)
+                    binding.celsiusSeekBar.progress = celsius
+                    binding.fahrenheitValueBox.text = progress.toString()
+
                 } else {
                     fahrenheit = progress
                     celsius = temperatureConverter.fahrenheitToCelsius(progress)
