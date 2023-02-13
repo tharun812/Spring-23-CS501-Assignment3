@@ -52,6 +52,10 @@ class MainActivity : AppCompatActivity() {
             quizViewModel.moveToNext()
             updateQuestion()
         }
+        binding.previousButton.setOnClickListener {
+            quizViewModel.moveToPrevious()
+            updateQuestion()
+        }
         binding.cheatButton.setOnClickListener {
             //TODO: Start Cheat Activity
             val answerIsTrue = quizViewModel.currentQuestionAnswer

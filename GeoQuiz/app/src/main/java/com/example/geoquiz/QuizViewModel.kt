@@ -34,6 +34,12 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
         currentIndex = (currentIndex + 1) % questionBank.size
     }
 
+    fun moveToPrevious(){
+        if(currentIndex != 0){
+            currentIndex = (currentIndex - 1) % questionBank.size
+        }
+    }
+
     fun setIsCheatedValue(value: Boolean) {
         questionBank[currentIndex].isCheated = value
     }
