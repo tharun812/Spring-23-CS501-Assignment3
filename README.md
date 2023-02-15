@@ -1,4 +1,4 @@
-Mobile App Development: Assignment 3 #TheByte
+**Mobile App Development: Assignment 3 #TheByte**
 
 The repository contains a separate branch for each task from the assignment.
 
